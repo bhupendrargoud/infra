@@ -19,13 +19,13 @@ def update_image_tag(new_image):
         with open(file_path, "w") as file:
             yaml.dump(deployment, file, default_flow_style=False)
 
-        print(f"✅ Successfully updated deployment.yaml with new image: {new_image}")
+        # print(f" Successfully updated deployment.yaml with new image: {new_image}")
     else:
-        print("❌ The file deployment.yaml is not a valid Deployment YAML")
+        print("The file deployment.yaml is not a valid Deployment YAML")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Update image tag in deployment.yaml")
+    parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--version", required=True, help="New image tag (e.g., 'repo/image:v1.2.3')")
 
     args = parser.parse_args()
