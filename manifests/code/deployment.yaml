@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensy-deployment
+  labels:
+    app: sensy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sensy
+  template:
+    metadata:
+      labels:
+        app: sensy
+    spec:
+      containers:
+        - name: sensy
+          image: p9:latest
+          imagePullPolicy: Never 
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: sensy-secret
+
