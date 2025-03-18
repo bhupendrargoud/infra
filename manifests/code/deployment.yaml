@@ -19,7 +19,7 @@ spec:
         - secretRef:
             name: sensy-secret
         image: bhupendrargoud/sensy:788504d
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         name: sensy
         ports:
         - containerPort: 8000
