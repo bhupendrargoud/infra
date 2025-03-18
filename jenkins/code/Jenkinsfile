@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    environment {
+        REPO_URL = 'git@github.com:bhupendrargoud/infra.git'
+        BRANCH = 'master'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: "${BRANCH}", credentialsId: 'ssh', url: "${REPO_URL}"
+            }
+        }
+
+        stage('List Files') {
+            steps {
+                sh "ls -la"
+            }
+        }
+    }
+}
